@@ -76,3 +76,12 @@ exports.createSession = (req, res, next) => {
     }
   });
 };
+
+exports.endSession = (req, res, next) => {
+  if (req.cookies.user_id) {
+    res.clearCookie("user_id");
+    return res.redirect("/users/sign-in");
+  } else {
+    return res.redirect("/");
+  }
+};
