@@ -5,6 +5,9 @@ const PORT = 8000;
 const keys = require("./keys");
 const mongoose = require("mongoose");
 const expressLayout = require("express-ejs-layouts");
+const session = require("express-session");
+const passport = require("passport");
+const passportLocal = require("./config/passport-local-strategy");
 
 app.use(express.urlencoded());
 
@@ -15,7 +18,20 @@ app.set("layout extractScripts", true);
 app.use(expressLayout);
 
 app.set("view engine", "ejs");
+
+app.use(
+  session({
+    name: "codeial",
+    secret: "blashwfejbfwejf",
+    saveUninitialized: false,
+    resave: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use("/", route);
+
 mongoose.connect(
   keys.MONGOURI,
   { useNewUrlParser: true, useUnifiedTopology: true },

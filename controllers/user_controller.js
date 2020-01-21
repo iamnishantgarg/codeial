@@ -36,3 +36,6 @@ exports.createUser = (req, res, next) => {
 
   // res.redirect("/users/sign-up");
 };
+exports.createSession = (req, res, next) => {
+  return res.redirect("/");
+};
