@@ -5,6 +5,10 @@ const PORT = 8000;
 const keys = require("./keys");
 const mongoose = require("mongoose");
 const expressLayout = require("express-ejs-layouts");
+const cookieParser = require("cookie-parser");
+
+app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use(express.static("./assets"));
 app.set("layout extractStyles", true);
@@ -14,14 +18,18 @@ app.use(expressLayout);
 
 app.set("view engine", "ejs");
 app.use("/", route);
-mongoose.connect(keys.MONGOURI, { useNewUrlParser: true }, err => {
-  if (err) console.log(err);
-  else {
-    console.log("connected to db");
+mongoose.connect(
+  keys.MONGOURI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  err => {
+    if (err) console.log(err);
+    else {
+      console.log("connected to db");
 
-    app.listen(PORT, err => {
-      if (err) console.log(err);
-      else console.log(`server is running ${PORT}`);
-    });
+      app.listen(PORT, err => {
+        if (err) console.log(err);
+        else console.log(`server is running ${PORT}`);
+      });
+    }
   }
-});
+);
