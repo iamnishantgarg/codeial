@@ -1,7 +1,25 @@
 const User = require("../models/user");
 
 exports.profile = (req, res, next) => {
-  res.send("<h1>user profile</h1>");
+  var id = req.cookies.user_id;
+  if (id) {
+    console.log("is found");
+
+    User.findOne({ _id: id }, (err, user) => {
+      if (user) {
+        console.log("user found");
+
+        return res.render("user_profile", { user, title: "user-profile" });
+      } else {
+        console.log("user not found");
+
+        return res.redirect("back");
+      }
+    });
+  } else {
+    console.log("user id not found");
+    return res.redirect("back");
+  }
 };
 
 exports.signIn = (req, res, next) => {
@@ -47,7 +65,7 @@ exports.createSession = (req, res, next) => {
     }
     if (user) {
       if (user.password == password) {
-        res.cookie("user-id", user.id);
+        res.cookie("user_id", user.id);
         return res.redirect("/users/profile");
       } else {
         console.log("password is incorrect");
