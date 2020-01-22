@@ -9,7 +9,7 @@ router.get(
   user_controller.userProfile
 );
 router.get("/sign-in", user_controller.signIn);
-// router.get("/sign-out", user_controller.endSession);
+router.get("/sign-out", user_controller.endSession);
 router.get("/sign-up", user_controller.signUp);
 router.post("/create", user_controller.createUser);
 router.post(

@@ -47,3 +47,7 @@ exports.createUser = (req, res, next) => {
 exports.createSession = (req, res, next) => {
   return res.redirect("/users/profile");
 };
+exports.endSession = (req, res, next) => {
+  req.logout();
+  return res.redirect("/");
+};
