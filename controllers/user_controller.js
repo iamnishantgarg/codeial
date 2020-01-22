@@ -1,12 +1,20 @@
 const User = require("../models/user");
 
-// exports.
+exports.userProfile = (req, res, next) => {
+  return res.render("user_profile", { title: "user-profile" });
+};
 
 exports.signIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   res.render("user_sign_in", { title: "Codeial:sign-In" });
 };
 
 exports.signUp = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   res.render("user_sign_up", { title: "Codeial:sign-Up" });
 };
 
@@ -37,5 +45,5 @@ exports.createUser = (req, res, next) => {
   // res.redirect("/users/sign-up");
 };
 exports.createSession = (req, res, next) => {
-  return res.redirect("/");
+  return res.redirect("/users/profile");
 };

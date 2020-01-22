@@ -8,6 +8,8 @@ const expressLayout = require("express-ejs-layouts");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
+const Authenticator = require("./config/authenticator");
+const mongoStore = require("connect-mongo")(session);
 
 app.use(express.urlencoded());
 
@@ -24,11 +26,21 @@ app.use(
     name: "codeial",
     secret: "blashwfejbfwejf",
     saveUninitialized: false,
-    resave: false
+    resave: false,
+    store: new mongoStore(
+      {
+        url: keys.MONGOURI,
+        autoRemove: "disabled"
+      },
+      err => {
+        console.log(err);
+      }
+    )
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(Authenticator.setAuthenticatedUser);
 
 app.use("/", route);
 
