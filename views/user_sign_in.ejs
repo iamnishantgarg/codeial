@@ -1,11 +1,23 @@
-<h2>signin</h2>
-<form action="/users/create-session" method="POST">
-  <input type="email" placeholder="enter your email" name="email" required />
-  <input
-    type="password"
-    placeholder="enter password"
-    name="password"
-    required
-  />
-  <input type="submit" value="Sign in!" />
-</form>
+<div class="main-form">
+  <form action="/users/create-session" method="POST">
+    <div class="form-feilds">
+      <input
+        type="email"
+        placeholder="enter your email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="form-feilds">
+      <input
+        type="password"
+        placeholder="enter password"
+        name="password"
+        required
+      />
+    </div>
+    <div class="form-button">
+      <input type="submit" value="Sign in!" />
+    </div>
+  </form>
+</div>

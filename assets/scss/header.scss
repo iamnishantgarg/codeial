@@ -1,0 +1,35 @@
+.main-header {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  //   align-content: space-between;
+  justify-content: space-between;
+  div {
+    width: 100%;
+    // font-size: 24px;
+    padding: 10px;
+  }
+
+  div {
+    h3 {
+      text-transform: capitalize;
+      text-align: center;
+    }
+  }
+  div {
+    ul {
+      float: right;
+      //   margin: auto;
+      li {
+        display: inline;
+        margin-right: 5px;
+        a {
+          color: white;
+          font-size: 20px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

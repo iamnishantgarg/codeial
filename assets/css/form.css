@@ -1,0 +1,16 @@
+form {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  form div {
+    margin-top: 5px;
+    text-align: center; }
+  form .form-feilds input {
+    border: none;
+    height: 100%;
+    width: 50%;
+    padding: 10px; }
+  form .form-button input {
+    border: 1px solid black; }

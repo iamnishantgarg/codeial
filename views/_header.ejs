@@ -1,12 +1,22 @@
-<h1>
-  Header
-  <ul>
-    <%if(locals.user){%>
-    <li><a href="/users/profile">Profile</a></li>
-    <li><a href="/users/sign-out">Sign-out</a></li>
-    <%}else{%>
-    <li><a href="/users/sign-in">Sign-in</a></li>
-    <li><a href="/users/sign-up">Sign-up</a></li>
-    <%}%>
-  </ul>
-</h1>
+<link rel="stylesheet" href="/css/header.css"/>
+<link rel="stylesheet" href="/css/form.css" />
+  <div class="main-header header">
+    <div><h2>Codeial</h2></div>
+  <div>
+    <h3><%=title%></h3>
+  </div>
+<div>
+
+    <ul>
+
+      <%if(locals.user){%>
+      <li><a href="/users/profile">Profile</a></li>
+      <li><a href="/users/sign-out">Sign-out</a></li>
+      <%}else{%>
+      <li><a href="/users/sign-in">Sign-in</a></li>
+      <li><a href="/users/sign-up">Sign-up</a></li>
+      <%}%>
+    </ul>
+    </div>
+  </div>
+</h2>

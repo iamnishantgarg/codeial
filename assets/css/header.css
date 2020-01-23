@@ -1,0 +1,21 @@
+.main-header {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between; }
+  .main-header div {
+    width: 100%;
+    padding: 10px; }
+  .main-header div h3 {
+    text-transform: capitalize;
+    text-align: center; }
+  .main-header div ul {
+    float: right; }
+    .main-header div ul li {
+      display: inline;
+      margin-right: 5px; }
+      .main-header div ul li a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none; }

@@ -8,6 +8,12 @@
     <title><%=title%></title>
   </head>
   <body>
-    <%- include("_header")%> <%- body%> <%- include("_footer")%>
+    <div class="wrapper">
+      <%- include("_header")%>
+      <div class="main">
+        <%- body%>
+      </div>
+      <%- include("_footer")%>
+    </div>
   </body>
 </html>

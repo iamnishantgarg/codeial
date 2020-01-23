@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const route = require("./routes/index");
+const path = require("path");
 const PORT = 8000;
 const keys = require("./keys");
 const mongoose = require("mongoose");
@@ -10,6 +11,17 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 const Authenticator = require("./config/authenticator");
 const mongoStore = require("connect-mongo")(session);
+const sassMiddleware = require("node-sass-middleware");
+
+app.use(
+  sassMiddleware({
+    src: path.join(__dirname, "assets", "scss"),
+    dest: path.join(__dirname, "assets", "css"),
+    debug: true,
+    outputStyle: "extended",
+    prefix: "/css"
+  })
+);
 
 app.use(express.urlencoded());
 
