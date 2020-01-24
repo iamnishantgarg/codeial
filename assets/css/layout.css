@@ -12,3 +12,5 @@ html {
   justify-content: space-between; }
   .wrapper div {
     width: 100%; }
+  .wrapper .main {
+    text-align: center; }

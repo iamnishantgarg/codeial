@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/header.css"/>
 <link rel="stylesheet" href="/css/form.css" />
   <div class="main-header header">
-    <div><h2>Codeial</h2></div>
+    <div><a href="/" style="color: white;text-decoration: none;"><h2>Codeial</h2></a></div>
   <div>
     <h3><%=title%></h3>
   </div>
@@ -10,7 +10,7 @@
     <ul>
 
       <%if(locals.user){%>
-      <li><a href="/users/profile">Profile</a></li>
+      <li><a href="/users/profile"><%=user.name%></a></li>
       <li><a href="/users/sign-out">Sign-out</a></li>
       <%}else{%>
       <li><a href="/users/sign-in">Sign-in</a></li>

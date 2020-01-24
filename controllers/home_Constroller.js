@@ -1,4 +1,13 @@
+const Post = require("../models/post");
+
 exports.home = (req, res, next) => {
-  //   res.send("<h1>Express is working for codeial</h1>");
-  res.render("home", { title: "home" });
+  Post.find({})
+    .populate("user")
+    .exec((err, posts) => {
+      if (err) {
+        console.log("error");
+        return;
+      }
+      return res.render("home", { title: "Home", posts });
+    });
 };
