@@ -13,13 +13,7 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true
-    },
-    comments: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "Comment"
-      }
-    ]
+    }
   },
   {
     timestamps: true
