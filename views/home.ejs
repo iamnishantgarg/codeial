@@ -18,7 +18,7 @@
         <small><%=post.user.name%></small><br />
         <%for(comment of post.comments){%>
         <p><%=comment.content%></p>
-        <small><%=comment.user.name%></small><br />
+        <small><%=comment.user.name%></small>
         <%}%> <%if(locals.user){%>
         <form
           action="/comments/create"
