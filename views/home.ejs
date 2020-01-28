@@ -12,38 +12,7 @@
     style="text-align: center;display: flex;justify-content: space-around;"
   >
     <ul>
-      <%for(post of posts) {%>
-      <li>
-        <%if(locals.user && locals.user.id==post.user.id){%>
-        <small><a href="/posts/destroy/<%=post.id%>">X</a></small
-        ><%}%> <%=post.content%> <br />
-        <small><%=post.user.name%></small><br />
-        <%for(comment of post.comments){%> <%if(locals.user &&
-        locals.user.id==comment.user.id){%>
-        <small><a href="/comments/destroy/<%=comment.id%>">X</a></small
-        ><%}%>
-
-        <p><%=comment.content%></p>
-        <small><%=comment.user.name%></small>
-        <%}%> <%if(locals.user){%>
-        <form
-          action="/comments/create"
-          method="POST"
-          style="padding: 0;margin: 0;"
-        >
-          <input
-            type="text"
-            name="content"
-            placeholder="Write a comment ..."
-            required
-          />
-          <input type="hidden" name="post" value="<%=post._id%>" hidden />
-          <input type="submit" value="Add Comment" />
-        </form>
-
-        <%}%>
-      </li>
-      <%}%>
+      <%for(post of posts) {%> <%-include('_post')-%> <%}%>
     </ul>
   </div>
 </section>
