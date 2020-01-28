@@ -8,6 +8,7 @@ router.get(
 
   user_controller.userProfile
 );
+router.post("/update/:id", user_controller.update);
 router.get("/sign-in", user_controller.signIn);
 router.get("/sign-out", user_controller.endSession);
 router.get("/sign-up", user_controller.signUp);

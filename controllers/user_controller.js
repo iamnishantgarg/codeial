@@ -60,3 +60,13 @@ exports.endSession = (req, res, next) => {
   req.logout();
   return res.redirect("/");
 };
+
+exports.update = (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
+    if (user) {
+      return res.redirect("/");
+    } else {
+      return res.redirect("back");
+    }
+  });
+};
