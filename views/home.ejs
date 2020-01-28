@@ -16,3 +16,9 @@
     </ul>
   </div>
 </section>
+
+<section id="user_friends">
+  <%for(u of all_users){%>
+  <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+  <%}%>
+</section>

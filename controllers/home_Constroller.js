@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const User = require("../models/user");
 
 exports.home = (req, res, next) => {
   Post.find({})
@@ -9,6 +10,13 @@ exports.home = (req, res, next) => {
         console.log("error");
         return;
       }
-      return res.render("home", { title: "Home", posts });
+      User.find({}, (err, users) => {
+        if (err) {
+          console.log(err);
+          return;
+        } else {
+          return res.render("home", { title: "Home", posts, all_users: users });
+        }
+      });
     });
 };

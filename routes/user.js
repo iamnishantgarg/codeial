@@ -3,7 +3,7 @@ const passport = require("passport");
 const authenticator = require("../config/authenticator");
 const user_controller = require("../controllers/user_controller");
 router.get(
-  "/profile",
+  "/profile/:id",
   authenticator.checkAuthentication,
 
   user_controller.userProfile
