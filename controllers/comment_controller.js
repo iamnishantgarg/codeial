@@ -27,19 +27,19 @@ exports.create = (req, res, next) => {
   });
 };
 
-// exports.destroy = (req, res, next) => {
-//   Comment.findById(req.params.in, (err, comment) => {
-//     if (comment.user == req.user.id) {
-//       let postId = comment.post;
-//       comment.remove();
-//       Post.findByIdAndUpdate(
-//         postId,
-//         { $pull: { comments: req.params.id } },
-//         (err, post) => {
-//           if (err) return res.redirect("back");
-//           else return res.redirect("back");
-//         }
-//       );
-//     }
-//   });
-// };
+exports.destroy = (req, res, next) => {
+  Comment.findById(req.params.id, (err, comment) => {
+    if (comment.user == req.user.id) {
+      let postId = comment.post;
+      comment.remove();
+      Post.findByIdAndUpdate(
+        postId,
+        { $pull: { comments: req.params.id } },
+        (err, post) => {
+          if (err) return res.redirect("back");
+          else return res.redirect("back");
+        }
+      );
+    }
+  });
+};

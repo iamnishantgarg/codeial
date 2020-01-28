@@ -18,7 +18,11 @@
         <small><a href="/posts/destroy/<%=post.id%>">X</a></small
         ><%}%> <%=post.content%> <br />
         <small><%=post.user.name%></small><br />
-        <%for(comment of post.comments){%>
+        <%for(comment of post.comments){%> <%if(locals.user &&
+        locals.user.id==comment.user.id){%>
+        <small><a href="/comments/destroy/<%=comment.id%>">X</a></small
+        ><%}%>
+
         <p><%=comment.content%></p>
         <small><%=comment.user.name%></small>
         <%}%> <%if(locals.user){%>
