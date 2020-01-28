@@ -7,5 +7,9 @@ router.post(
   authenticator.checkAuthentication,
   post_controller.createPost
 );
-
+router.get(
+  "/destroy/:id",
+  authenticator.checkAuthentication,
+  post_controller.destroy
+);
 module.exports = router;
