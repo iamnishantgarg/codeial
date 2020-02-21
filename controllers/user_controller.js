@@ -54,10 +54,13 @@ exports.createUser = (req, res, next) => {
   // res.redirect("/users/sign-up");
 };
 exports.createSession = (req, res, next) => {
+  req.flash("success", "logged in successfully!");
   return res.redirect("/users/profile/" + req.user.id);
 };
 exports.endSession = (req, res, next) => {
   req.logout();
+  req.flash("success", "logged out successfully!");
+
   return res.redirect("/");
 };
 

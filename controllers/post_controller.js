@@ -7,9 +7,12 @@ exports.createPost = async (req, res, next) => {
       user: req.user._id,
       comments: []
     });
+    req.flash("success", "post created successfully!");
     return res.redirect("back");
   } catch (error) {
+    req.flash("error", "post cannot be created");
     console.log(error);
+    return res.redirect("back");
   }
 };
 
@@ -20,9 +23,12 @@ exports.destroy = async (req, res, next) => {
       post.remove();
     }
     await Comment.deleteMany({ post: req.params.id });
+    req.flash("success", "post and associated comments deleted successfully!");
 
     return res.redirect("/");
   } catch (error) {
+    req.flash("error", "cannot delete post!");
+
     console.log(error);
     return res.redirect("back");
   }

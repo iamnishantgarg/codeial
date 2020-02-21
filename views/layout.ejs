@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/css/layout.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
     <title><%=title%></title>
   </head>
   <body>
@@ -15,5 +20,25 @@
       </div>
       <%- include("_footer")%>
     </div>
+    <script>
+      <%if (flash.success && flash.success.length > 0) {%>
+        new Noty({
+          theme: "relax",
+          type: "success",
+          text: '<%=flash.success%>',
+          layout: "topRight",
+          timeout: 1000
+        }).show();
+      <%}%>
+      <%if (flash.error && flash.error.length > 0) {%>
+          new Noty({
+            theme: "relax",
+            type: "error",
+            text: '<%=flash.error%>',
+            layout: "topRight",
+            timeout: 1000
+          }).show();
+      <%}%>
+    </script>
   </body>
 </html>
