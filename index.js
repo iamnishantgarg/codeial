@@ -25,11 +25,13 @@ const cMWare = require("./config/middleware");
 //   })
 // );
 
-app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, "assets")));
 
-app.use(express.static("./assets"));
+app.use(express.urlencoded());
+app.use(express.json());
+
 app.set("layout extractStyles", true);
-app.set("layout extractScripts", true);
+// app.set("layout extractScripts", true);
 
 app.use(expressLayout);
 
